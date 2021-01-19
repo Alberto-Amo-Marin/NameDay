@@ -8,8 +8,13 @@ import { EeuuComponent } from './eeuu/eeuu.component';
 import { FranceComponent } from './france/france.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
+
+  exports: [
+    
+  ],
   declarations: [
     AppComponent,
     SpainComponent,
@@ -20,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

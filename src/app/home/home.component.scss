@@ -2,16 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: calibri;
     outline: none;
 }
 
 body {
     margin: -8px;
     height: 100vh;
-    // display: flex;
-    // justify-content: space-around;
-    // align-items: center;
     background: black;
 }
 
@@ -142,8 +138,6 @@ body {
     transform: rotate(90deg);
 }
 /*******************************************************************************/
-
-
 
 .span {
     height: 100px;
