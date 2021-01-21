@@ -14,11 +14,28 @@ body {
     overflow: hidden;
 }
 
+/* Style for the Tittle*/
+.title {
+    //display: inline;
+    position: relative;
+    font: 100px Helvetica, Sans-Serif;
+    letter-spacing: -5px;
+    color: #045d56;
+}
+
+.title:after {
+    content: "NBA STATISTICS";
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    color: #1eb980;
+}
+
 .layout {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 /* Spanish Card */
@@ -142,9 +159,9 @@ body {
 }
 /*******************************************************************************/
 
-.span {
-    height: 100px;
-    width: 100px;
+.icon {
+    height: 50px;
+    width: 50px;
     font-size: 50px;
 }
 
@@ -161,7 +178,7 @@ h1 + p {
 
 h1 + p + p {
     color: gray;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .spacing {
