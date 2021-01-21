@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EeuuComponent } from './eeuu/eeuu.component';
-import { FranceComponent } from './france/france.component';
 import { HomeComponent } from './home/home.component';
-import { SpainComponent } from './spain/spain.component';
+import { OnePlayerComponent } from './one-player/one-player.component';
+import { RandomComponent } from './random/random.component';
+import { TwoPlayersComponent } from './two-players/two-players.component';
+
 
 const routes: Routes = [
-  { path: 'spain', component: SpainComponent },
-  { path: 'france', component: FranceComponent },
-  { path: 'eeuu', component: EeuuComponent },
+  { path: 'random', component: RandomComponent },
+  { path: 'onePlayer', component: OnePlayerComponent },
+  { path: 'twoPlayers', component: TwoPlayersComponent },
   { path: '', component: HomeComponent }
 ];
 

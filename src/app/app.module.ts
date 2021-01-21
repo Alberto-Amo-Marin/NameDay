@@ -3,24 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SpainComponent } from './spain/spain.component';
-import { EeuuComponent } from './eeuu/eeuu.component';
-import { FranceComponent } from './france/france.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { RandomComponent } from './random/random.component';
+import { OnePlayerComponent } from './one-player/one-player.component';
+import { TwoPlayersComponent } from './two-players/two-players.component';
 
 @NgModule({
 
   exports: [
-    
+
   ],
   declarations: [
     AppComponent,
-    SpainComponent,
-    EeuuComponent,
-    FranceComponent,
-    HomeComponent
+    HomeComponent,
+    RandomComponent,
+    OnePlayerComponent,
+    TwoPlayersComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,8 @@
 body {
     //margin: -8px;
     height: 100vh;
-    background: black;
+    //background: black;
+    background: #060c21;
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden;
@@ -16,26 +17,24 @@ body {
 
 /* Style for the Tittle*/
 .title {
-    //display: inline;
-    position: relative;
-    font: 100px Helvetica, Sans-Serif;
-    letter-spacing: -5px;
-    color: #045d56;
+    //text-align: center;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 40vh;
+    letter-spacing: 1px;
 }
 
-.title:after {
-    content: "NBA STATISTICS";
-    position: absolute;
-    left: 10px;
-    top: 5px;
-    color: #1eb980;
+.stitle {
+    width: 300px;
 }
 
 .layout {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    height: 90vh;
+    //align-items: center;
+    height: 60vh;
 }
 
 /* Spanish Card */
@@ -57,7 +56,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(red, transparent, transparent, transparent, transparent, blue);
+    background: linear-gradient(#08f7fe, transparent, transparent, transparent, transparent, #fe53bb);
     z-index: -1;
     transition: 1s;
 }
@@ -69,7 +68,7 @@ body {
     left: 5px;
     bottom: 5px;
     right: 5px;
-    background: black;
+    background: #060c21;
     z-index: -1;
 }
 
@@ -98,7 +97,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(green, transparent, transparent, transparent, transparent, purple);
+    background: linear-gradient(#ff9472, transparent, transparent, transparent, transparent, #f5d300);
     z-index: -1;
     transition: 1s;
 }
@@ -110,7 +109,7 @@ body {
     left: 5px;
     bottom: 5px;
     right: 5px;
-    background: black;
+    background: #060c21;
     z-index: -1;
 }
 
@@ -138,7 +137,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(yellow, transparent, transparent, transparent, transparent, salmon);
+    background: linear-gradient(#74ee15, transparent, transparent, transparent, transparent, #f85125);
     z-index: -1;
     transition: 1s;
 }
@@ -150,7 +149,7 @@ body {
     left: 5px;
     bottom: 5px;
     right: 5px;
-    background: black;
+    background: #060c21;
     z-index: -1;
 }
 
@@ -163,6 +162,7 @@ body {
     height: 50px;
     width: 50px;
     font-size: 50px;
+    color:#f000ff;
 }
 
 h1 {

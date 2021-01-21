@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FranceComponent } from './france.component';
+import { RandomComponent } from './random.component';
 
-describe('FranceComponent', () => {
-  let component: FranceComponent;
-  let fixture: ComponentFixture<FranceComponent>;
+describe('RandomComponent', () => {
+  let component: RandomComponent;
+  let fixture: ComponentFixture<RandomComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FranceComponent ]
+      declarations: [ RandomComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FranceComponent);
+    fixture = TestBed.createComponent(RandomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
