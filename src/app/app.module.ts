@@ -10,6 +10,7 @@ import { RandomComponent } from './random/random.component';
 import { OnePlayerComponent } from './one-player/one-player.component';
 import { TwoPlayersComponent } from './two-players/two-players.component';
 import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 
@@ -28,7 +29,8 @@ import { MatSelectModule } from '@angular/material/select';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { onlinePlayer } from 'src/interfaces/onlinePlayer';
+import { meta } from 'src/interfaces/meta';
 
 interface Player {
   first_name?: string;
@@ -6,6 +9,12 @@ interface Player {
   full_name: string;
   id?: number;
 }
+
+interface allPlayers {
+  data?: onlinePlayer[],
+  meta?: meta;
+}
+
 @Component({
   selector: 'app-one-player',
   templateUrl: './one-player.component.html',
@@ -13,13 +22,21 @@ interface Player {
 })
 export class OnePlayerComponent implements OnInit {
   players: Player[] = [
-    { full_name: 'player1', id: 1 },
-    { full_name: 'player2', id: 2 },
-    { full_name: 'player3', id: 3 },
+
   ];
-  constructor() { }
+
+  getPlayers: allPlayers;
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get('https://www.balldontlie.io/api/v1/players').subscribe(Player => {
+      this.getPlayers = Player;
+      //console.log(this.getPlayers.data);
+      for (let minPlayer of this.getPlayers.data)
+        this.players.push({
+          full_name: minPlayer.first_name + ' ' + minPlayer.last_name
+        })
+    });
   }
 
 }
