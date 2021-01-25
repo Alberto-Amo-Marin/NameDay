@@ -9,11 +9,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { RandomComponent } from './random/random.component';
 import { OnePlayerComponent } from './one-player/one-player.component';
 import { TwoPlayersComponent } from './two-players/two-players.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
 
   exports: [
-
+    //MatSelectModule
   ],
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { TwoPlayersComponent } from './two-players/two-players.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

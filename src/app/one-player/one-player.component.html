@@ -1,7 +1,15 @@
 <div class="bground">
 
     <div class="content">
+        <h4>Basic mat-select</h4>
+        <mat-form-field appearance="fill">
+            <mat-label>Select a Player from the list</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let player of players" [value]="player.id">
+                    {{player.full_name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
     </div>
 </div>
-
