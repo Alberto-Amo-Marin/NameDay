@@ -29,14 +29,24 @@ export class OnePlayerComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('https://www.balldontlie.io/api/v1/players').subscribe(Player => {
-      this.getPlayers = Player;
-      //console.log(this.getPlayers.data);
-      for (let minPlayer of this.getPlayers.data)
-        this.players.push({
-          full_name: minPlayer.first_name + ' ' + minPlayer.last_name
-        })
-    });
-  }
+    //Method for obtaining the total pages of data
+    this.http.get('https://www.balldontlie.io/api/v1/players?per_page=100').subscribe(pages => {
+      this.getPlayers = pages;
+      for (let i = 1; i <= this.getPlayers.meta.total_pages; i++) {
+        this.http.get('https://www.balldontlie.io/api/v1/players?page=' + i).subscribe(Player => {
+          this.getPlayers = Player;
+          //console.log(this.getPlayers.data);
+          for (let minPlayer of this.getPlayers.data)
+            this.players.push({
+              full_name: minPlayer.first_name + ' ' + minPlayer.last_name
+            })
+        });
+      }
+    }
 
+    );
+
+
+
+  }
 }
