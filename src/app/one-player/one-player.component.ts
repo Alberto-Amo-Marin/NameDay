@@ -4,7 +4,7 @@ import { onlinePlayer } from 'src/interfaces/onlinePlayer';
 import { meta } from 'src/interfaces/meta';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 
 export interface State {
   flag: string;
@@ -31,7 +31,7 @@ interface allPlayers {
 })
 export class OnePlayerComponent implements OnInit {
   stateCtrl = new FormControl();
-  filteredStates: Observable<State[]>;
+  filteredStates: Observable<Player[]>;
 
   states: State[] = [
     {
@@ -66,10 +66,10 @@ export class OnePlayerComponent implements OnInit {
 
   getPlayers: allPlayers;
   constructor(private http: HttpClient) {
-    this.filteredStates = this.stateCtrl.valueChanges
+    this.stateCtrl.valueChanges
       .pipe(
         startWith(''),
-        map(state => state ? this._filterStates(state) : this.states.slice())
+        map(player => player ? this.getPlayersByName(player) : this.states.slice())
       );
   }
 
@@ -96,9 +96,21 @@ export class OnePlayerComponent implements OnInit {
 
   }
 
-  private _filterStates(value: string): State[] {
-    const filterValue = value.toLowerCase();
+  getPlayersByName(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    // const filterValue = value.toLowerCase();
+    console.log("busco:", filterValue);
+    this.http.get('https://www.balldontlie.io/api/v1/players?search=' + filterValue).subscribe(Player => {
+      this.getPlayers = Player;
+      console.log("obtengo: ",this.getPlayers.data);
+      this.players = [];
+      for (let minPlayer of this.getPlayers.data) {
+        this.players.push({
+          full_name: minPlayer.first_name + ' ' + minPlayer.last_name
+        })
+      }
+      return this.players.filter(player => player.full_name.toLowerCase().indexOf(filterValue) === 0);
+    });
 
-    return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
   }
 }
