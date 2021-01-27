@@ -11,6 +11,10 @@ import { OnePlayerComponent } from './one-player/one-player.component';
 import { TwoPlayersComponent } from './two-players/two-players.component';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+import {MatInputModule} from '@angular/material/input'; 
 
 @NgModule({
 
@@ -30,7 +34,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatIconModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
