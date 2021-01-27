@@ -4,16 +4,21 @@
         <h4>Type the name of player</h4>
         <form>
             <mat-form-field class="example-full-width">
-                <mat-label>State</mat-label>
+                <mat-label>Type the name of player</mat-label>
                 <input matInput aria-label="State" (keyup)="getPlayersByName($event)">
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let state of players" [value]="state.name">
-                        <!-- <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
-                        <span>{{state.name}}</span> |
-                        <small>Population: {{state.population}}</small> -->
+                <!-- <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let player of players" [value]="player.id">
                         test
                     </mat-option>
-                </mat-autocomplete>
+                </mat-autocomplete> -->
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-select>
+                    <mat-option *ngFor="let player of players" [value]="player.id">
+                        {{player.full_name}}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
         </form>
     </div>
