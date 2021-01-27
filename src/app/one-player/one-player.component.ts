@@ -2,15 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { onlinePlayer } from 'src/interfaces/onlinePlayer';
 import { meta } from 'src/interfaces/meta';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
 
-export interface State {
-  flag: string;
-  name: string;
-  population: string;
-}
 
 interface Player {
   first_name?: string;
@@ -30,86 +22,28 @@ interface allPlayers {
   styleUrls: ['./one-player.component.scss']
 })
 export class OnePlayerComponent implements OnInit {
-  stateCtrl = new FormControl();
-  filteredStates: Observable<Player[]>;
 
-  states: State[] = [
-    {
-      name: 'Arkansas',
-      population: '2.978M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
-    },
-    {
-      name: 'California',
-      population: '39.14M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    },
-    {
-      name: 'Florida',
-      population: '20.27M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
-    },
-    {
-      name: 'Texas',
-      population: '27.47M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
-    }
-  ];
-
-  players: Player[] = [
-
-  ];
+  players: Player[] = [];
 
   getPlayers: allPlayers;
-  constructor(private http: HttpClient) {
-    this.stateCtrl.valueChanges
-      .pipe(
-        startWith(''),
-        map(player => player ? this.getPlayersByName(player) : this.states.slice())
-      );
-  }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    // //Method for obtaining the total pages of data
-    // this.http.get('https://www.balldontlie.io/api/v1/players?per_page=100').subscribe(pages => {
-    //   this.getPlayers = pages;
-    //   for (let i = 1; i <= this.getPlayers.meta.total_pages; i++) {
-    //     this.http.get('https://www.balldontlie.io/api/v1/players?page=' + i).subscribe(Player => {
-    //       this.getPlayers = Player;
-    //       //console.log(this.getPlayers.data);
-    //       for (let minPlayer of this.getPlayers.data)
-    //         this.players.push({
-    //           full_name: minPlayer.first_name + ' ' + minPlayer.last_name
-    //         })
-    //     });
-    //   }
-    //   console.log("jug", this.players.length);
-    // }
-
-    // );
-
-
 
   }
 
   getPlayersByName(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    // const filterValue = value.toLowerCase();
-    console.log("busco:", filterValue);
+    let filterValue = (event.target as HTMLInputElement).value;
+    filterValue = filterValue.toLowerCase();
+
     this.http.get('https://www.balldontlie.io/api/v1/players?search=' + filterValue).subscribe(Player => {
       this.getPlayers = Player;
-      console.log("obtengo: ",this.getPlayers.data);
       this.players = [];
       for (let minPlayer of this.getPlayers.data) {
         this.players.push({
           full_name: minPlayer.first_name + ' ' + minPlayer.last_name
         })
       }
-      return this.players.filter(player => player.full_name.toLowerCase().indexOf(filterValue) === 0);
     });
 
   }

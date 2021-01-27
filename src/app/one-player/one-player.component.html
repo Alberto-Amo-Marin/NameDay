@@ -5,20 +5,8 @@
             <mat-form-field class="input">
                 <mat-label>Type the name of player</mat-label>
                 <input matInput (keyup)="getPlayersByName($event)">
-                <!-- <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let player of players" [value]="player.id">
-                        test
-                    </mat-option>
-                </mat-autocomplete> -->
             </mat-form-field>
             <br>
-            <!-- <mat-form-field>
-                <mat-select>
-                    <mat-option *ngFor="let player of players" [value]="player.id">
-                        {{player.full_name}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field> -->
             <tr *ngFor="let player of players" [value]="player.id">
                 {{player.full_name}}
             </tr>
