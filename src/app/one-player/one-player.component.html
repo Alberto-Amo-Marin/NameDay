@@ -7,9 +7,22 @@
                 <input matInput (keyup)="getPlayersByName($event)">
             </mat-form-field>
             <br>
-            <tr *ngFor="let player of players" [value]="player.id">
-                {{player.full_name}}
-            </tr>
+
+            <table class="styled-table" *ngIf="players.length>0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <!-- <th>Points</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let player of players" [value]="player.id">
+                        <td>{{player.full_name}}</td>
+                        <!-- <td>6000</td> -->
+                    </tr>
+                    <!-- and so on... -->
+                </tbody>
+            </table>
         </form>
     </div>
 </div>
