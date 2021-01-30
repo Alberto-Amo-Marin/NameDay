@@ -44,6 +44,10 @@ export class OnePlayerComponent implements OnInit {
           full_name: minPlayer.first_name + ' ' + minPlayer.last_name
         })
       }
+
+      if (filterValue == '') {
+        this.players = [];
+      }
     });
 
   }
