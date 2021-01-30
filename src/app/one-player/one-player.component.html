@@ -1,5 +1,7 @@
 <div class="bground">
-
+<mat-icon routerLink="/" class="back">
+    west
+</mat-icon>
     <div fxLayout="column" fxLayoutAlign="center center" class="content">
         <div class="sform">
             <div class="input">
@@ -13,7 +15,7 @@
         </div>
 
         <div class="dtable">
-            <table class="styled-table" *ngIf="players.length>0">
+            <table class="styled-table" *ngIf="players.length>0 && value!=''">
                 <thead>
                     <tr>
                         <th>Name</th>
