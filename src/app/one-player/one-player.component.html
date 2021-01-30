@@ -1,17 +1,15 @@
 <div class="bground">
 
-    <div fxLayout="column" fxLayoutAlign="space-around center" class="content">
+    <div fxLayout="column" fxLayoutAlign="center center" class="content">
         <div class="sform">
-            <mat-form-field class="input">
-                <mat-label>Type the name of player</mat-label>
-                <button mat-button matPrefix mat-icon-button>
-                    <mat-icon>search</mat-icon>
-                </button>
-                <input matInput (keyup)="getPlayersByName($event)" [(ngModel)]="value">
-                <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-                    <mat-icon>close</mat-icon>
-                </button>
-            </mat-form-field>
+            <div class="input">
+                <div class="minput" color="warn" fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon class="icons">search</mat-icon>
+                    <input type="input" (keyup)="getPlayersByName($event)" [(ngModel)]="value" class="html-input">
+                    <mat-icon class="icons" [style.visibility]="value==''? 'hidden' : 'visible'" (click)="value=''"
+                        style="cursor: pointer;">close</mat-icon>
+                </div>
+            </div>
         </div>
 
         <div class="dtable">
