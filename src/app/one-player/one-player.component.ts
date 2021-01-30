@@ -23,6 +23,7 @@ interface allPlayers {
 })
 export class OnePlayerComponent implements OnInit {
 
+  value = '';
   players: Player[] = [];
 
   getPlayers: allPlayers;
@@ -34,7 +35,7 @@ export class OnePlayerComponent implements OnInit {
 
   getPlayersByName(event: Event) {
     let filterValue = (event.target as HTMLInputElement).value;
-    filterValue = filterValue.toLowerCase();
+    filterValue = filterValue.toLowerCase().trimStart();
 
     this.http.get('https://www.balldontlie.io/api/v1/players?search=' + filterValue).subscribe(Player => {
       this.getPlayers = Player;

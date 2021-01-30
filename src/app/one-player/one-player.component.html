@@ -1,13 +1,17 @@
 <div class="bground">
 
-    <div class="content">
-        <form>
+    <div fxLayout="column" fxLayoutAlign="space-around center" class="content">
+        <div class="sform">
             <mat-form-field class="input">
                 <mat-label>Type the name of player</mat-label>
-                <input matInput (keyup)="getPlayersByName($event)">
+                <input matInput (keyup)="getPlayersByName($event)" [(ngModel)]="value">
+                <button mat-button *ngIf="value" matSuffix mat-icon-button (click)="value=''">
+                    <mat-icon>close</mat-icon>
+                </button>
             </mat-form-field>
-            <br>
-
+        </div>
+        
+        <div class="dtable">
             <table class="styled-table" *ngIf="players.length>0">
                 <thead>
                     <tr>
@@ -23,6 +27,6 @@
                     <!-- and so on... -->
                 </tbody>
             </table>
-        </form>
+        </div>
     </div>
 </div>
