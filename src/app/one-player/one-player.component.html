@@ -4,27 +4,27 @@
         <div class="sform">
             <mat-form-field class="input">
                 <mat-label>Type the name of player</mat-label>
+                <button mat-button matPrefix mat-icon-button>
+                    <mat-icon>search</mat-icon>
+                </button>
                 <input matInput (keyup)="getPlayersByName($event)" [(ngModel)]="value">
-                <button mat-button *ngIf="value" matSuffix mat-icon-button (click)="value=''">
+                <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                     <mat-icon>close</mat-icon>
                 </button>
             </mat-form-field>
         </div>
-        
+
         <div class="dtable">
             <table class="styled-table" *ngIf="players.length>0">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <!-- <th>Points</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let player of players" [value]="player.id">
                         <td>{{player.full_name}}</td>
-                        <!-- <td>6000</td> -->
                     </tr>
-                    <!-- and so on... -->
                 </tbody>
             </table>
         </div>
